@@ -7,7 +7,7 @@ const client = new ApolloClient({
 });
 
 
-export const fetchContent = async (input : string = '') => {
+export const fetchContent = async (input : string = "") => {
 
   const { data } = await client.query({ query: gql`
   query GetContentCards($input: String!){

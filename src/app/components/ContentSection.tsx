@@ -5,7 +5,7 @@ import Post from "./Post";
 import NoResult from "./NoResult";
 
 const ContentSection = ({ content }: { content: any }) => {
-  if (content?.edges?.length === 0) {
+  if (content?.edges?.length === 0 && sessionStorage.getItem("query") !== "") {
     return <NoResult />;
   }
 
@@ -16,8 +16,9 @@ const ContentSection = ({ content }: { content: any }) => {
       position="absolute"
       mt="80px"
       width="100%"
+      zIndex={99}
     >
-      {content?.edges?.map((card, index: number) => {
+      {content?.edges?.map((card: any, index: number) => {
         console.log("test card", card);
         const {
           name = "",

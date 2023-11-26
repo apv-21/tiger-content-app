@@ -48,8 +48,7 @@ export const Search = ({
         width="70%"
         border="1px solid #797670"
         style={{
-          backgroundImage:
-            "linear-gradient(0deg, #797670, #797670), linear-gradient(0deg, #383733, #383733)",
+          backgroundImage: "linear-gradient(0deg, #383733, #383733)",
           backgroundSize: "cover",
           backgroundPosition: "0 0, 0 100%",
         }}
@@ -57,7 +56,7 @@ export const Search = ({
         margin="0 auto"
         padding="12px 10px"
       >
-        <Flex flexDirection="row" height="16px">
+        <Flex flexDirection="row" height="16px" width="100%">
           <Image
             src={`/SearchIcon.png`}
             alt="search-icon"
@@ -66,7 +65,6 @@ export const Search = ({
           ></Image>
           <Input
             ref={inputRef}
-            placeholder="Search"
             onChange={handleOnChange}
             onKeyUp={handleOnKeyUp}
             onKeyDown={handleOnKeyDown}

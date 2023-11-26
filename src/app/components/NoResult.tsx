@@ -13,7 +13,7 @@ const NoResult = () => {
       transform="translate(-50%, -50%)"
     >
       <Text color="white" textAlign="center">
-        Oops! No result found for "${query}"
+        Oops! No result found for "{query}"
       </Text>
     </Flex>
   );

@@ -2,6 +2,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+After cloning the repository, please run the following command on the project root:
+
+```bash
+npmn install
+```
+
+Please enable prettier extension for code formatting:
+
+Go to Extensions -> Search for "Prettier" -> Install (if not done earlier) -> Settings -> Search for "Format on Save" -> Mark the checkbox
+
 First, run the development server:
 
 ```bash

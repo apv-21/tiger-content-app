@@ -4,12 +4,16 @@ import { Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRef } from "react";
 import { Input } from "@chakra-ui/react";
+import { fetchContent } from "../api/fetch-content.service";
 
 export const Search = () => {
   const inputRef = useRef(null);
 
   const handleOnChange = async (event: { target: { value: string } }) => {
-    console.log("Query:", event.target.value);
+    const query = event.target.value;
+    console.log("Query:", query);
+    const data = await fetchContent(query);
+    console.log("search data", data);
   };
 
   const handleOnKeyUp = (event: { key: string }) => {

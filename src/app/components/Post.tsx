@@ -20,7 +20,7 @@ const Post = ({
   const resizedImage = `${imageArray[0]}tigerhall.io/resize/250x140${imageArray[1]}`;
 
   return (
-    <Flex flexDirection="column" width="68%" margin="0 auto">
+    <Flex flexDirection="column" width="70%" margin="0 auto">
       <LazyImage
         src={resizedImage}
         alt={podcastName ?? "image"}

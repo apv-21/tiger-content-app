@@ -27,20 +27,16 @@ export const Search = ({
     300
   );
 
-  const handleOnKeyUp = (event: { key: string }) => {
-    if (event.key === "Enter") {
-      const query = inputRef.current.value;
-    }
-  };
-
-  const handleOnKeyDown = (event: { key: string }) => {
-    if (event.key === "Escape") {
-      inputRef.current.value = "";
-    }
-  };
-
   return (
-    <Box position="fixed" top={0} left={0} zIndex={100} width="100%">
+    <Box
+      position="fixed"
+      top={0}
+      left={0}
+      zIndex={100}
+      width="100%"
+      background="#000"
+    >
+      <Box height="16px" />
       <Flex
         width="70%"
         border="1px solid #797670"
@@ -64,8 +60,6 @@ export const Search = ({
             ref={inputRef}
             placeholder="Search"
             onChange={handleOnChange}
-            onKeyUp={handleOnKeyUp}
-            onKeyDown={handleOnKeyDown}
             bg="transparent"
             color="white"
             border="none"

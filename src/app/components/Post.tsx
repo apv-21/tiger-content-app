@@ -1,6 +1,7 @@
 import { Image } from "@chakra-ui/react";
 
 import { Text, Flex } from "@chakra-ui/react";
+import LazyImage from "./LazyImage";
 
 interface PostProps {
   imageUrl: string;
@@ -18,18 +19,17 @@ const Post = ({
   companyName,
 }: PostProps) => {
   const imageArray = imageUrl?.split("tigerhall.io");
-  const resizedImage = `${imageArray[0]}tigerhall.io/resize/250x120${imageArray[1]}`;
+  const resizedImage = `${imageArray[0]}tigerhall.io/resize/250x140${imageArray[1]}`;
 
   return (
     <Flex flexDirection="column" width="68%" margin="0 auto">
-      <Image
+      <LazyImage
         src={resizedImage}
-        alt="Image"
+        alt={podcastName ?? "image"}
         borderRadius="8px 8px 0 0"
         width="100%"
         height="100%"
-        backgroundSize="cover"
-      />
+      ></LazyImage>
       <Flex
         justifyContent="space-between"
         flexDirection="column"

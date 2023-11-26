@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Search from "./components/Search";
 import ContentSection from "./components/ContentSection";
+import Loader from "./components/Loader";
 
 const PageLayout = ({ fetchedContent }: { fetchedContent: any }) => {
   const [content, setContent] = useState(fetchedContent);
@@ -11,8 +12,8 @@ const PageLayout = ({ fetchedContent }: { fetchedContent: any }) => {
   const showLoadingState = () => setFetching(true);
 
   const updateContentOnSearch = (data: any) => {
-    setFetching(false);
     setContent(data);
+    setFetching(false);
   };
 
   return (
@@ -21,11 +22,8 @@ const PageLayout = ({ fetchedContent }: { fetchedContent: any }) => {
         fetchStartCallback={showLoadingState}
         successCallback={updateContentOnSearch}
       />
-      {isFetching ? (
-        <div>Loading...</div>
-      ) : (
-        <ContentSection content={content} />
-      )}
+
+      {isFetching ? <Loader /> : <ContentSection content={content} />}
     </div>
   );
 };

@@ -32,7 +32,6 @@ export const fetchContent = async (input : string = "") => {
   ${CATEGORY_FRAGMENT}
   ${EXPERT_FRAGMEBNT}
 `, variables: {input} })
-  console.log('data', data)
   return data?.contentCards
 }
  

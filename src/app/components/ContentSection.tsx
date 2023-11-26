@@ -19,7 +19,6 @@ const ContentSection = ({ content }: { content: any }) => {
       zIndex={99}
     >
       {content?.edges?.map((card: any, index: number) => {
-        console.log("test card", card);
         const {
           name = "",
           experts = [{ firstName: "", lastName: "", company: "" }],

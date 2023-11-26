@@ -20,11 +20,9 @@ export const Search = ({
     async (event: { target: { value: string } }) => {
       const query = event.target.value;
       sessionStorage.setItem("query", query);
-      console.log("Query:", query);
       fetchStartCallback();
       const data = await fetchContent(query);
       successCallback(data);
-      console.log("search data", data);
     },
     300
   );
@@ -32,7 +30,6 @@ export const Search = ({
   const handleOnKeyUp = (event: { key: string }) => {
     if (event.key === "Enter") {
       const query = inputRef.current.value;
-      console.log("Search query:", query);
     }
   };
 

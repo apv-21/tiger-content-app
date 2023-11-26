@@ -34,13 +34,13 @@ const Post = ({
         justifyContent="space-between"
         flexDirection="column"
         overflow="hidden"
-        color="white"
-        bg="black"
+        color="black"
+        bg="white"
         flex={1}
         p={5}
         borderRadius="0 0 8px 8px"
       >
-        <Flex flexDirection="column">
+        <Flex flexDirection="column" p={8}>
           <Text
             color="#797670"
             fontWeight={500}
@@ -49,11 +49,47 @@ const Post = ({
           >
             COMMUNICATING AS A LEADER
           </Text>
-          <Text>{podcastName}</Text>
-          <Text>
+          <Text
+            color="#000000"
+            fontWeight={700}
+            fontSize="16px"
+            lineHeight="19.2px"
+          >
+            {podcastName}
+          </Text>
+          <Text
+            color="#4D4B46"
+            fontWeight={500}
+            fontSize="12px"
+            lineHeight="14.4px"
+            mt={8}
+          >
             {hostFirstName} {hostLastName}
           </Text>
-          <Text>{companyName}</Text>
+          <Text
+            color="
+          #797670"
+            fontWeight={700}
+            fontSize="12px"
+            lineHeight="14.4px"
+          >
+            {companyName === "" ? "Subway APAC" : companyName}
+          </Text>
+          <Flex mt={8} justifyContent="end">
+            <Image
+              src={`/Share.png`}
+              alt="share"
+              width={16}
+              height={16}
+            ></Image>
+            <Image
+              src={`/Bookmark.png`}
+              alt="bookmark"
+              width={16}
+              height={16}
+              ml={10}
+            ></Image>
+          </Flex>
         </Flex>
       </Flex>
     </Flex>

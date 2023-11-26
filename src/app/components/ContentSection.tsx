@@ -9,7 +9,7 @@ const ContentSection = ({ content }: { content: any }) => {
       gap="24px"
       flexDirection="column"
       position="absolute"
-      top="80px"
+      mt="80px"
       width="100%"
     >
       {content?.edges?.map((card, index: number) => {

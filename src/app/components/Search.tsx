@@ -19,6 +19,7 @@ export const Search = ({
   const handleOnChange = debounce(
     async (event: { target: { value: string } }) => {
       const query = event.target.value;
+      sessionStorage.setItem("query", query);
       console.log("Query:", query);
       fetchStartCallback();
       const data = await fetchContent(query);

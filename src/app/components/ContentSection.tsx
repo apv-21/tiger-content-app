@@ -2,8 +2,13 @@
 
 import { Flex } from "@chakra-ui/react";
 import Post from "./Post";
+import NoResult from "./NoResult";
 
 const ContentSection = ({ content }: { content: any }) => {
+  if (content?.edges?.length === 0) {
+    return <NoResult />;
+  }
+
   return (
     <Flex
       gap="24px"

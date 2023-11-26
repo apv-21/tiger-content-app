@@ -6,13 +6,26 @@ import ContentSection from "./components/ContentSection";
 
 const PageLayout = ({ fetchedContent }: { fetchedContent: any }) => {
   const [content, setContent] = useState(fetchedContent);
+  const [isFetching, setFetching] = useState(false);
 
-  const updateContentOnSearch = (data: any) => setContent(data);
+  const showLoadingState = () => setFetching(true);
+
+  const updateContentOnSearch = (data: any) => {
+    setFetching(false);
+    setContent(data);
+  };
 
   return (
     <div>
-      <Search successCallback={updateContentOnSearch} />
-      <ContentSection content={content} />
+      <Search
+        fetchStartCallback={showLoadingState}
+        successCallback={updateContentOnSearch}
+      />
+      {isFetching ? (
+        <div>Loading...</div>
+      ) : (
+        <ContentSection content={content} />
+      )}
     </div>
   );
 };

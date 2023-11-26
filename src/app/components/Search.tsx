@@ -62,6 +62,7 @@ export const Search = ({
           ></Image>
           <Input
             ref={inputRef}
+            placeholder="Search"
             onChange={handleOnChange}
             onKeyUp={handleOnKeyUp}
             onKeyDown={handleOnKeyDown}

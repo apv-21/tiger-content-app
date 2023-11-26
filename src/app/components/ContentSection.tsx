@@ -4,11 +4,21 @@ import { Flex } from "@chakra-ui/react";
 import Post from "./Post";
 import FallbackScreen from "./FallbackScreen";
 
+interface Card {
+  name: string;
+  experts: [{ firstName: string; lastName: string; company: string }];
+  image: { uri: string };
+}
+
+interface Content {
+  edges: [];
+}
+
 const ContentSection = ({
   content,
   isError,
 }: {
-  content: any;
+  content: Content;
   isError: boolean;
 }) => {
   const query = sessionStorage.getItem("query");
@@ -31,7 +41,7 @@ const ContentSection = ({
       zIndex={99}
       pb="24px"
     >
-      {content?.edges?.map((card: any, index: number) => {
+      {content?.edges?.map((card: Card, index: number) => {
         const {
           name = "",
           experts = [{ firstName: "", lastName: "", company: "" }],

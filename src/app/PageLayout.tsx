@@ -17,14 +17,14 @@ const PageLayout = ({ fetchedContent }: { fetchedContent: any }) => {
   };
 
   return (
-    <div>
+    <>
       <Search
         fetchStartCallback={showLoadingState}
         successCallback={updateContentOnSearch}
       />
 
       {isFetching ? <Loader /> : <ContentSection content={content} />}
-    </div>
+    </>
   );
 };
 

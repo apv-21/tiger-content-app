@@ -1,6 +1,4 @@
-import { Image } from "@chakra-ui/react";
-
-import { Text, Flex } from "@chakra-ui/react";
+import { Text, Flex, Heading, Image } from "@chakra-ui/react";
 import LazyImage from "./LazyImage";
 
 interface PostProps {
@@ -41,28 +39,31 @@ const Post = ({
         borderRadius="0 0 8px 8px"
       >
         <Flex flexDirection="column" p={8}>
-          <Text
+          <Heading
             color="#797670"
             fontWeight={500}
             fontSize="12px"
             lineHeight="14.4px"
+            as="h2"
           >
             COMMUNICATING AS A LEADER
-          </Text>
-          <Text
+          </Heading>
+          <Heading
             color="#000000"
             fontWeight={700}
             fontSize="16px"
             lineHeight="19.2px"
+            as="h1"
           >
             {podcastName}
-          </Text>
+          </Heading>
           <Text
             color="#4D4B46"
             fontWeight={500}
             fontSize="12px"
             lineHeight="14.4px"
             mt={8}
+            as="p"
           >
             {hostFirstName} {hostLastName}
           </Text>
@@ -72,6 +73,7 @@ const Post = ({
             fontWeight={700}
             fontSize="12px"
             lineHeight="14.4px"
+            as="p"
           >
             {companyName === "" ? "Subway APAC" : companyName}
           </Text>

@@ -1,13 +1,16 @@
 "use client";
+import { useState } from "react";
 
 import Search from "./components/Search";
 import ContentSection from "./components/ContentSection";
 
-const PageLayout = () => {
+const PageLayout = ({ fetchedContent }: { fetchedContent: any }) => {
+  const [content, setContent] = useState(fetchedContent);
+
   return (
     <div>
       <Search />
-      <ContentSection />
+      <ContentSection content={content} />
     </div>
   );
 };

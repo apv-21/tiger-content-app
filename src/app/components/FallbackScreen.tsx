@@ -1,8 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 
-const NoResult = () => {
-  const query = sessionStorage.getItem("query");
-
+const FallbackScreen = ({ text }: { text?: string }) => {
   return (
     <Flex
       position="absolute"
@@ -13,10 +11,10 @@ const NoResult = () => {
       transform="translate(-50%, -50%)"
     >
       <Text color="white" textAlign="center">
-        Oops! No result found for "{query}"
+        {text}
       </Text>
     </Flex>
   );
 };
 
-export default NoResult;
+export default FallbackScreen;

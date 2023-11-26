@@ -2,11 +2,23 @@
 
 import { Flex } from "@chakra-ui/react";
 import Post from "./Post";
-import NoResult from "./NoResult";
+import FallbackScreen from "./FallbackScreen";
 
-const ContentSection = ({ content }: { content: any }) => {
-  if (content?.edges?.length === 0 && sessionStorage.getItem("query") !== "") {
-    return <NoResult />;
+const ContentSection = ({
+  content,
+  isError,
+}: {
+  content: any;
+  isError: boolean;
+}) => {
+  const query = sessionStorage.getItem("query");
+  if (content?.edges?.length === 0 && query !== "") {
+    const errorMessage = `Oops! No result found for "${query}"`;
+    return <FallbackScreen text={errorMessage} />;
+  }
+
+  if (isError) {
+    return <FallbackScreen text="Uh-Oh! Something went wrong" />;
   }
 
   return (
@@ -17,6 +29,7 @@ const ContentSection = ({ content }: { content: any }) => {
       mt="80px"
       width="100%"
       zIndex={99}
+      pb="24px"
     >
       {content?.edges?.map((card: any, index: number) => {
         const {

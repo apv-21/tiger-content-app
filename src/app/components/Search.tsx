@@ -10,9 +10,11 @@ import debounce from "../utils/debounce";
 export const Search = ({
   fetchStartCallback,
   successCallback,
+  errorCallback,
 }: {
   successCallback: (data: any) => void;
   fetchStartCallback: () => void;
+  errorCallback: () => void;
 }) => {
   const inputRef = useRef(null);
 
@@ -21,8 +23,12 @@ export const Search = ({
       const query = event.target.value;
       sessionStorage.setItem("query", query);
       fetchStartCallback();
-      const data = await fetchContent(query);
-      successCallback(data);
+      const response = await fetchContent(query);
+      if (response?.message === "Success") {
+        successCallback(response?.contentCards);
+      } else {
+        errorCallback();
+      }
     },
     300
   );

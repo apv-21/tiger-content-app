@@ -9,29 +9,42 @@ const client = new ApolloClient({
 
 export const fetchContent = async (input : string = "") => {
 
-  const { data } = await client.query({ query: gql`
-  query GetContentCards($input: String!){
-    contentCards(filter: {limit: 20, keywords: $input, types: [PODCAST]}){
-      edges{
-        ... on Podcast {
-          name
-          image {
-            ...ImageFragment
-          }
-          categories { 
-            ...CategoryFragment
-          }
-          experts {
-            ...ExpertFragment
+  try{
+    const response = await client.query({ query: gql`
+    query GetContentCards($input: String!){
+      contentCards(filter: {limit: 20, keywords: $input, types: [PODCAST]}){
+        edges{
+          ... on Podcast {
+            name
+            image {
+              ...ImageFragment
+            }
+            categories { 
+              ...CategoryFragment
+            }
+            experts {
+              ...ExpertFragment
+            }
           }
         }
       }
     }
+    ${IMAGE_FRAGMENT}
+    ${CATEGORY_FRAGMENT}
+    ${EXPERT_FRAGMEBNT}
+  `, variables: {input} })
+  
+    const responseObj = response?.data
+    if(!response?.errors){
+      return {...responseObj, message: "Success"}
+    }
+    return {...responseObj, message: "Failure"}
+    
   }
-  ${IMAGE_FRAGMENT}
-  ${CATEGORY_FRAGMENT}
-  ${EXPERT_FRAGMEBNT}
-`, variables: {input} })
-  return data?.contentCards
+  catch(err){
+    console.log(err)
+    return {message: 'Failure'}
+  }
+
 }
  

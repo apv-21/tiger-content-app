@@ -7,7 +7,11 @@ import { Input } from "@chakra-ui/react";
 import { fetchContent } from "../api/fetch-content.service";
 import debounce from "../utils/debounce";
 
-export const Search = () => {
+export const Search = ({
+  successCallback,
+}: {
+  successCallback: (data: any) => void;
+}) => {
   const inputRef = useRef(null);
 
   const handleOnChange = debounce(
@@ -15,6 +19,7 @@ export const Search = () => {
       const query = event.target.value;
       console.log("Query:", query);
       const data = await fetchContent(query);
+      successCallback(data);
       console.log("search data", data);
     },
     300

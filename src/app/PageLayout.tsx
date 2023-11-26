@@ -7,9 +7,11 @@ import ContentSection from "./components/ContentSection";
 const PageLayout = ({ fetchedContent }: { fetchedContent: any }) => {
   const [content, setContent] = useState(fetchedContent);
 
+  const updateContentOnSearch = (data: any) => setContent(data);
+
   return (
     <div>
-      <Search />
+      <Search successCallback={updateContentOnSearch} />
       <ContentSection content={content} />
     </div>
   );

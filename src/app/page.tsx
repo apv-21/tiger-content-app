@@ -2,7 +2,7 @@ import PageLayout from "./PageLayout";
 import { fetchContent } from "./api/fetch-content.service";
 import FallbackScreen from "./components/FallbackScreen";
 
-export const getData = async () => {
+const getData = async () => {
   const response = await fetchContent();
   return response;
 };

@@ -21,7 +21,8 @@ const ContentSection = ({
   content: Content;
   isError: boolean;
 }) => {
-  const query = sessionStorage.getItem("query");
+  const query =
+    typeof window != "undefined" && window.sessionStorage.getItem("query");
   if (content?.edges?.length === 0 && query !== "") {
     const errorMessage = `Oops! No result found for "${query}"`;
     return <FallbackScreen text={errorMessage} />;
